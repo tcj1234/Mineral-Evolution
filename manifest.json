@@ -1,0 +1,17 @@
+{
+  "name": "矿物纪元 Mineral Evolution",
+  "short_name": "矿物纪元",
+  "description": "一个关于锰矿物表生环境进化与污染物去除的科研小游戏。",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
