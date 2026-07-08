@@ -10,6 +10,7 @@
 - 矿物图鉴：自动记录已解锁矿物。
 - 实验记录：保存、删除和导出 JSON。
 - PWA：支持添加到 iPhone 主屏幕。
+- 锰矿物合成方法库：整理 birnessite、α/β/γ-MnO₂、MnOOH、Mn₃O₄、Mn₂O₃、MnCO₃、MnO、todorokite 和掺杂锰氧化物等路线。
 
 ## 在线访问
 
@@ -17,6 +18,12 @@ GitHub Pages 启用后，访问地址通常为：
 
 ```text
 https://tcj1234.github.io/Mineral-Evolution/
+```
+
+锰矿物合成方法库入口：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/synthesis.html
 ```
 
 ## iPhone 添加到桌面
