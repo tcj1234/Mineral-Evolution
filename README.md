@@ -1,6 +1,6 @@
 # 矿物纪元 Mineral Evolution
 
-这是一个关于锰矿物表生环境进化与污染物去除的网页版科研小游戏，同时包含合成资料库、实验计算器和论文结果分析模板。
+这是一个关于锰矿物表生环境进化与污染物去除的网页版科研小游戏，同时包含合成资料库、实验计算器、数据拟合、论文写作和图表规划工具。
 
 ## 功能
 
@@ -13,31 +13,73 @@
 - 锰矿物合成方法库：整理 birnessite、α/β/γ-MnO₂、MnOOH、Mn₃O₄、Mn₂O₃、MnCO₃、MnO、todorokite 和掺杂锰氧化物等路线。
 - 实验计算工具箱：溶液配制、催化剂投加、一级动力学、Mn 平均氧化态、KMnO₄-Mn(II)理论产率和质量分数试剂取液量。
 - 表征结果分析与写作模板：XRD、ATR-FTIR、XPS、EPR/ROS、LC-MS、动力学、Mn 溶出和电化学解释模板。
+- 苯酚–水钠锰矿专题模块：L-Bir/H-Bir 对比、抑制剂解释、机制段落生成。
+- 数据拟合与图表模块：拟一级动力学、kobs、R²、半衰期和淬灭实验解释。
+- 实验方案生成器：按研究目标生成变量设计、对照组、表征方案和预期结果。
+- 矿物转化路径图：展示 Mn²⁺ → MnOOH → birnessite → todorokite/α-MnO₂ 等转化网络。
+- 论文写作助手：生成摘要、引言、结果讨论、机制和结论草稿。
+- 科研图表规划器：自动规划 Figure 1–8 的内容和目的。
 
 ## 在线访问
 
-GitHub Pages 启用后，访问地址通常为：
+主页：
 
 ```text
 https://tcj1234.github.io/Mineral-Evolution/
 ```
 
-锰矿物合成方法库入口：
+锰矿物合成方法库：
 
 ```text
 https://tcj1234.github.io/Mineral-Evolution/synthesis.html
 ```
 
-实验计算工具箱入口：
+实验计算工具箱：
 
 ```text
 https://tcj1234.github.io/Mineral-Evolution/lab-tools.html
 ```
 
-表征结果分析与写作模板入口：
+表征结果分析与写作模板：
 
 ```text
 https://tcj1234.github.io/Mineral-Evolution/analysis-templates.html
+```
+
+苯酚–水钠锰矿专题模块：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/phenol-birnessite.html
+```
+
+数据拟合与图表模块：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/data-fitting.html
+```
+
+实验方案生成器：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/experiment-designer.html
+```
+
+矿物转化路径图：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/transformation-map.html
+```
+
+论文写作助手：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/paper-writer.html
+```
+
+科研图表规划器：
+
+```text
+https://tcj1234.github.io/Mineral-Evolution/figure-planner.html
 ```
 
 ## iPhone 添加到桌面
