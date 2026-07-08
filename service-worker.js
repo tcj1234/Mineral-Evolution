@@ -1,10 +1,16 @@
-const CACHE_NAME = "mineral-evolution-v4";
+const CACHE_NAME = "mineral-evolution-v5";
 const ASSETS = [
   "./",
   "./index.html",
   "./synthesis.html",
   "./lab-tools.html",
   "./analysis-templates.html",
+  "./phenol-birnessite.html",
+  "./data-fitting.html",
+  "./experiment-designer.html",
+  "./transformation-map.html",
+  "./paper-writer.html",
+  "./figure-planner.html",
   "./manifest.json",
   "./icons/icon.svg"
 ];
