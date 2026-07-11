@@ -92,3 +92,12 @@ https://tcj1234.github.io/Mineral-Evolution/figure-planner.html
 ## 说明
 
 这是游戏化规则模型，不是真实热力学或动力学预测软件。适合科研科普、原型展示和实验思路整理。
+
+## 发布前最小回归清单
+
+- [ ] 首页可正常加载，功能入口跳转正常。
+- [ ] `index.html`：自由进化、关卡、污染物挑战可计算并显示结果。
+- [ ] `index.html`：实验记录可保存、删除、导出 JSON。
+- [ ] `data-fitting.html`：动力学拟合与淬灭解释在合法/非法输入下均有合理输出。
+- [ ] `lab-tools.html`：6 个计算工具在非法输入下给出错误提示。
+- [ ] `service-worker.js`：版本升级后可清理旧缓存并正常离线访问核心页面。

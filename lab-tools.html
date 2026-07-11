@@ -23,13 +23,17 @@
 <section class="card"><h2>使用提醒</h2><ul><li>所有计算默认体积具有加和性，适合预估，不替代容量瓶定容。</li><li>KMnO₄、过硫酸铵、强酸强碱体系具有安全风险，实验需小试和通风橱。</li><li>理论产率只按化学计量估算，不考虑洗涤损失、未反应前驱体和水合/层间离子。</li></ul></section>
 </main>
 <script>
-function n(id){return Number(document.getElementById(id).value)}function fmt(x,d=4){return Number.isFinite(x)?x.toFixed(d):'--'}
-function calcSolution(){let mg=n('c1')*n('v1')*n('mw1')/1000;r1.innerHTML=`需要称量：<b>${fmt(mg,3)} mg</b> = ${fmt(mg/1000,6)} g。`}
-function calcDose(){let mg=n('dose')*n('vol2');r2.innerHTML=`需要加入催化剂：<b>${fmt(mg,3)} mg</b>。`}
-function calcK(){let a=n('c0'),b=n('ct'),t=n('t3');if(a<=0||b<=0||t<=0||b>a){r3.innerHTML='<span class="danger">请输入有效数值，且 Ct 不能大于 C0。</span>';return}let k=-Math.log(b/a)/t,rem=(1-b/a)*100;r3.innerHTML=`去除率：<b>${fmt(rem,2)}%</b><br>kobs：<b>${fmt(k,5)} min⁻¹</b><br>ln(C₀/Cₜ) = ${fmt(Math.log(a/b),4)}`}
-function calcAOS(){let a=n('mn2'),b=n('mn3'),c=n('mn4'),s=a+b+c;if(s<=0){r4.innerHTML='<span class="danger">比例总和不能为 0。</span>';return}let aos=(2*a+3*b+4*c)/s;r4.innerHTML=`归一化后 AOS = <b>${fmt(aos,3)}</b><br>比例总和 = ${fmt(s,2)}%。`}
-function calcBir(){let nk=n('kmno4')/158.04,nm=n('mnso4')/n('mwMn');let need=1.5*nk,lim=nm>=need?'KMnO₄':'Mn(II)';let mol=lim==='KMnO₄'?2.5*nk:(5/3)*nm;let mass=mol*86.94;r5.innerHTML=`n(KMnO₄)=<b>${fmt(nk,4)} mol</b><br>n(Mn²⁺)=<b>${fmt(nm,4)} mol</b><br>Mn(VII)/Mn(II)=<b>${fmt(nk/nm,3)}</b><br>限制试剂：<b>${lim}</b><br>理论 MnO₂：<b>${fmt(mass,3)} g</b>`}
-function calcWt(){let mol=n('targetM')*n('targetV')/1000;let pure=mol*n('soluteMw');let solMass=pure/(n('wt')/100);let vol=solMass/n('rho');r6.innerHTML=`所需溶质：${fmt(mol,4)} mol，纯物质质量 ${fmt(pure,3)} g。<br>需取质量分数试剂：<b>${fmt(vol,3)} mL</b>。`}
+function n(id){return Number(document.getElementById(id).value)}
+function fmt(x,d=4){return Number.isFinite(x)?x.toFixed(d):'--'}
+function show(id,html){document.getElementById(id).innerHTML=html}
+function fail(id,msg){document.getElementById(id).innerHTML=`<span class="danger">${msg}</span>`}
+function valid(...vals){return vals.every(v=>Number.isFinite(v))}
+function calcSolution(){let c=n('c1'),v=n('v1'),mw=n('mw1');if(!valid(c,v,mw)||c<=0||v<=0||mw<=0){fail('r1','请输入有效正数。');return}let mg=c*v*mw/1000;show('r1',`需要称量：<b>${fmt(mg,3)} mg</b> = ${fmt(mg/1000,6)} g。`)}
+function calcDose(){let dose=n('dose'),vol=n('vol2');if(!valid(dose,vol)||dose<0||vol<=0){fail('r2','请输入有效数值，且体积需大于 0。');return}let mg=dose*vol;show('r2',`需要加入催化剂：<b>${fmt(mg,3)} mg</b>。`)}
+function calcK(){let a=n('c0'),b=n('ct'),t=n('t3');if(!valid(a,b,t)||a<=0||b<=0||t<=0||b>a){fail('r3','请输入有效数值，且 Ct 不能大于 C0。');return}let k=-Math.log(b/a)/t,rem=(1-b/a)*100;show('r3',`去除率：<b>${fmt(rem,2)}%</b><br>kobs：<b>${fmt(k,5)} min⁻¹</b><br>ln(C₀/Cₜ) = ${fmt(Math.log(a/b),4)}`)}
+function calcAOS(){let a=n('mn2'),b=n('mn3'),c=n('mn4');if(!valid(a,b,c)||a<0||b<0||c<0){fail('r4','请输入有效非负数比例。');return}let s=a+b+c;if(s<=0){fail('r4','比例总和不能为 0。');return}let aos=(2*a+3*b+4*c)/s;show('r4',`归一化后 AOS = <b>${fmt(aos,3)}</b><br>比例总和 = ${fmt(s,2)}%。`)}
+function calcBir(){let km=n('kmno4'),ms=n('mnso4'),mw=n('mwMn');if(!valid(km,ms,mw)||km<=0||ms<=0||mw<=0){fail('r5','请输入有效正数。');return}let nk=km/158.04,nm=ms/mw;let need=1.5*nk,lim=nm>=need?'KMnO₄':'Mn(II)';let mol=lim==='KMnO₄'?2.5*nk:(5/3)*nm;let mass=mol*86.94;show('r5',`n(KMnO₄)=<b>${fmt(nk,4)} mol</b><br>n(Mn²⁺)=<b>${fmt(nm,4)} mol</b><br>Mn(VII)/Mn(II)=<b>${fmt(nk/nm,3)}</b><br>限制试剂：<b>${lim}</b><br>理论 MnO₂：<b>${fmt(mass,3)} g</b>`)}
+function calcWt(){let m=n('targetM'),v=n('targetV'),wt=n('wt'),rho=n('rho'),mw=n('soluteMw');if(!valid(m,v,wt,rho,mw)||m<=0||v<=0||wt<=0||wt>100||rho<=0||mw<=0){fail('r6','请输入有效数值，且质量分数需在 0–100 之间。');return}let mol=m*v/1000;let pure=mol*mw;let solMass=pure/(wt/100);let vol=solMass/rho;show('r6',`所需溶质：${fmt(mol,4)} mol，纯物质质量 ${fmt(pure,3)} g。<br>需取质量分数试剂：<b>${fmt(vol,3)} mL</b>。`)}
 calcSolution();calcDose();calcK();calcAOS();calcBir();calcWt();
 </script>
 </body></html>
